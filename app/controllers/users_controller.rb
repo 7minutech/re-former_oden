@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(user_params[:id])
+  end
+
   private
   def user_params
     params.expect(user: [ :username, :email, :password ])
