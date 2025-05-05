@@ -24,6 +24,13 @@
     <%= password_field_tag "user password" %>
     <%= submit_tag "submit" %>
 -->
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: @user do |form| %>
   <%= form.label :username, "Your user name here"%>
   <%= form.text_field :username %>
